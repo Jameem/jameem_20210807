@@ -1,0 +1,6 @@
+{
+   "video": {
+    "title": "required",
+    "categoryId": "required|integer"
+  }
+}
