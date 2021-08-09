@@ -1,15 +1,10 @@
-const Sequelize = require("sequelize")
-
 const db = require("../db/models")
 
 // Get list of all categories
 exports.listForSelect = async (req, res, next) => {
   try {
     const categories = await db.VideoCategory.findAll({
-      attributes: [
-        [Sequelize.literal('"VideoCategory"."id"'), "value"],
-        [Sequelize.literal('"VideoCategory"."name"'), "label"],
-      ],
+      attributes: ["id", "name"],
       order: [["id", "ASC"]],
     }).catch((e) => {
       throw e
