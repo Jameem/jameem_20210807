@@ -1,0 +1,18 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__body {
+  position: "absolute";
+  width: 600px;
+  background-color: #fff;
+  border: "1px solid #000";
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
