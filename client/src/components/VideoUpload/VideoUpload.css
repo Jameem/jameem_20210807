@@ -1,0 +1,15 @@
+.upload__paper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload__input {
+  width: 100%;
+}
+
+@media (min-width: 1000px) {
+  .upload__input {
+    width: 60%;
+  }
+}
