@@ -1,0 +1,19 @@
+.nav {
+  background-color: rgb(7, 172, 171) !important;
+}
+
+.nav__logo {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav__toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__button {
+  text-decoration: none;
+  color: #000;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
