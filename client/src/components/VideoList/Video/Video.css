@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3) !important;
+  cursor: pointer;
+  min-width: 256px;
+  /* max-width: 295px; */
+  /* min-height: 440px; */
+}
+
+.card:hover {
+  box-shadow: 0 16px 70px -12.125px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card__amountGross {
+  font-size: 13px;
+  text-decoration: line-through;
+}
+
+.card__media {
+  padding-top: 55%;
+  transition: transform 1s;
+}
+
+.card__media:hover {
+  transform: scale(1.1);
+}
