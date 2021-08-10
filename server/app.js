@@ -5,23 +5,27 @@ const rateLimit = require("express-rate-limit")
 const helmet = require("helmet")
 
 require("dotenv").config()
-require("./db/models")
 const apiRouter = require("./routes/api")
-
-const app = express()
 const environment = process.env.NODE_ENV
 const port = process.env.PORT || 5000
+
+// Setup database connection
+require("./db/models")
+
+// Setup the express app
+const app = express()
 
 // Handle cross origin requests
 app.use(cors())
 
 app.use(express.json())
 
+// Wire the api route
 app.use("/api", apiRouter)
 
 // Limiting number of requests from a source
 const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 60 minutes
+  windowMs: 1 * 60 * 1000, // 1 minute
   max: 100, // limit each IP to 100 requests per windowMs
 })
 app.use(limiter)
