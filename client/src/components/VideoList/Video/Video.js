@@ -1,14 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   Typography,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Grid,
-  CardHeader,
-  Button,
-  Modal,
 } from "@material-ui/core"
 
 import "./Video.css"
@@ -19,15 +15,15 @@ function Video({ showVideo, videoProps }) {
       <Card className="card" onClick={() => showVideo(videoProps.id)}>
         <CardMedia
           className="card__media"
-          image={`http://localhost:5000/${videoProps.thumbnail256}`}
+          image={`${process.env.REACT_APP_FILE_PATH}/${videoProps.thumbnail256}`}
           title={videoProps?.title}
         />
 
-        <CardContent style={{ flexGrow: "1" }}>
+        <CardContent>
           <Typography gutterBottom variant="h6">
             {videoProps?.title}
           </Typography>
-          <Typography gutterBottom variant="caption">
+          <Typography variant="caption">
             {videoProps?.VideoCategory?.name}
           </Typography>
         </CardContent>

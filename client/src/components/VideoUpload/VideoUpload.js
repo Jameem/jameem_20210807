@@ -50,7 +50,6 @@ function VideoUpload() {
     }
 
     formData.append("videoParams", JSON.stringify(inputParams))
-
     formData.append("video", file)
 
     const config = {
@@ -62,7 +61,7 @@ function VideoUpload() {
 
     // Post the data
     axios
-      .post("http://localhost:5000/api/videos", formData, config)
+      .post("/videos", formData, config)
       .then((response) => {
         clearForm()
 
@@ -98,7 +97,7 @@ function VideoUpload() {
     }
 
     // Check whether the selected file is of allowed types
-    const allowedTypes = ["video/mp4", "video/mov"]
+    const allowedTypes = ["video/mp4", "video/mov", "video/quicktime"]
 
     if (!allowedTypes.includes(file.type)) {
       setToastConfig({
