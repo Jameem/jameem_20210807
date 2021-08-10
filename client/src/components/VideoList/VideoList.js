@@ -10,19 +10,15 @@ function VideoList() {
   const [showModal, setShowModal] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState(null)
 
+  // Fetch the videos on the initial render
   useEffect(() => {
     async function getVideos() {
-      const result = await axios
-        .get("http://localhost:5000/api/videos")
-        .catch((error) => {
-          throw error?.response?.data
-        })
+      const result = await axios.get("/videos").catch((error) => {
+        throw error?.response?.data
+      })
 
-      // Set the state if offers available else showing an error message
-      if (result && result.data) {
-        setVideos(result.data.data)
-      } else {
-      }
+      // Set the state if videos are available
+      if (result && result.data) setVideos(result.data.data)
     }
 
     getVideos()
@@ -40,21 +36,19 @@ function VideoList() {
 
   return (
     <div>
-      <h4>Video List</h4>
+      <h3>Video List</h3>
 
-      <Grid
-        container
-        spacing={2}
-        style={{ marginTop: "5px", flexStart: "left" }}
-        data-testid="offer"
-      >
-        {videos &&
-          videos.map((video) => {
+      {videos.length > 0 && (
+        <Grid container spacing={2}>
+          {videos.map((video) => {
             return (
               <Video showVideo={showVideo} videoProps={video} key={video.id} />
             )
           })}
-      </Grid>
+        </Grid>
+      )}
+
+      {!videos.length && <label>Sorry, no videos found !</label>}
 
       <VideoModal
         open={showModal}
