@@ -56,6 +56,7 @@ const generateThumbnails = async (file) => {
     const thumbnail128 = `thumbnail128-${filename}.png`
     const thumbnail256 = `thumbnail256-${filename}.png`
 
+    // Generate thumbnail 64x64
     await ffmpeg(file.path).screenshots({
       timestamps: [0.0],
       filename: thumbnail64,
@@ -63,6 +64,7 @@ const generateThumbnails = async (file) => {
       size: "64x64",
     })
 
+    // Generate thumbnail 128x128
     await ffmpeg(file.path).screenshots({
       timestamps: [0.0],
       filename: thumbnail128,
@@ -70,6 +72,7 @@ const generateThumbnails = async (file) => {
       size: "128x128",
     })
 
+    // Generate thumbnail 256x256
     await ffmpeg(file.path).screenshots({
       timestamps: [0.0],
       filename: thumbnail256,

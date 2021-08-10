@@ -48,29 +48,28 @@ Object.keys(db).forEach((modelName) => {
   }
 })
 
-sequelize.sync({
-  //   force: true,
-})
+// Sync the database
+sequelize.sync().then(function () {
+  // Create initial categories
+  const categories = [
+    {
+      id: 1,
+      name: "Excercise",
+    },
+    {
+      id: 2,
+      name: "Education",
+    },
+    {
+      id: 3,
+      name: "Recipe",
+    },
+  ]
 
-// Create initial categories
-const categories = [
-  {
-    id: 1,
-    name: "Excercise",
-  },
-  {
-    id: 2,
-    name: "Education",
-  },
-  {
-    id: 3,
-    name: "Recipe",
-  },
-]
-
-sequelize.models.VideoCategory.bulkCreate(categories, {
-  fields: ["id", "name"],
-  updateOnDuplicate: ["name"],
+  sequelize.models.VideoCategory.bulkCreate(categories, {
+    fields: ["id", "name"],
+    updateOnDuplicate: ["name"],
+  })
 })
 
 db.sequelize = sequelize
