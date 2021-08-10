@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  postgresql:
+    image: "postgres:latest"
+    restart: always
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_PASSWORD=123456
+
+  server:
+    restart: always
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - 5000:5000
+    depends_on:
+      - postgresql
+    environment:
+      NODE_ENV: development
+      PGUSER: postgres
+      PGPASSWORD: postgres_password
+      PGDATABASE: postgres
+      PGHOST: postgresql
+
+  client:
+    restart: always
+    stdin_open: true
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api/
+      - REACT_APP_FILE_PATH=http://localhost:5000
