@@ -12,15 +12,15 @@ On a Windows machine:-
 
 From the server folder, run,
 
-### npm install
+#### npm install
 
-### npm start
+#### npm start
 
 From the client folder, run,
 
-### npm install
+#### npm install
 
-### npm start
+#### npm start
 
 Access the application here, http://localhost:3000/
 Access the API here, http://localhost:5000/api
