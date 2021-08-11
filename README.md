@@ -23,4 +23,5 @@ From the client folder, run,
 #### npm start
 
 Access the application here, http://localhost:3000/
+
 Access the API here, http://localhost:5000/api
