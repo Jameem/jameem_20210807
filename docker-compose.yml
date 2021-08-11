@@ -22,6 +22,7 @@ services:
       - postgresql
     environment:
       NODE_ENV: development
+      PORT: 5000
       PGUSER: postgres
       PGPASSWORD: postgres_password
       PGDATABASE: postgres
