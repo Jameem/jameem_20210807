@@ -6,7 +6,7 @@ On a Linux machine:-
 
 From the root folder, run,
 
-### docker-compose up
+#### docker-compose up
 
 On a Windows machine:-
 
