@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import axios from "axios"
 import { Container } from "@material-ui/core"
 
-import "./App.css"
 import Nav from "./components/Nav/Nav"
 import VideoList from "./components/VideoList/VideoList"
 import VideoUpload from "./components/VideoUpload/VideoUpload"

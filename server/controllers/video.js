@@ -47,6 +47,7 @@ exports.create = async (req, res, next) => {
   }
 }
 
+// Generate thumbnail for the specified video
 const generateThumbnails = async (file) => {
   try {
     const directory = `public/uploads/videos`
@@ -90,6 +91,7 @@ const generateThumbnails = async (file) => {
   }
 }
 
+// Validation middleware
 exports.validate = async (req, res, next) => {
   try {
     // Validate input parameters
@@ -138,6 +140,7 @@ exports.validate = async (req, res, next) => {
   }
 }
 
+// List all the videos
 exports.list = async (req, res, next) => {
   try {
     const videos = await db.Video.findAll({
