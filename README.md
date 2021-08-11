@@ -1,6 +1,6 @@
 # jameem_20210807
 
-Please follow the instructions to run the application
+Please follow the instructions to run the application.
 
 On a Linux machine:-
 
@@ -9,6 +9,8 @@ From the root folder, run,
 #### docker-compose up
 
 On a Windows machine:-
+
+Please setup the .env files for both server and client. You can refer the docker-compose.yml file for the environemnt variables.
 
 From the server folder, run,
 
